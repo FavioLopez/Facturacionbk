@@ -31,8 +31,8 @@ namespace VentasComputadora.API.Controllers
             var result =  _productoService.GetProductos();            
             var resultDto = _mapper.Map<IEnumerable<ProductoDto>>(result);
 
-            var response = new ApiResponse<IEnumerable<ProductoDto>>(resultDto);
-            return Ok(response);
+            //var response = new ApiResponse<IEnumerable<ProductoDto>>(resultDto);
+            return Ok(resultDto);
         }
 
         [HttpGet("{id}")]
