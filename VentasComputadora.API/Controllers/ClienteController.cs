@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VentasComputadora.API.Response;
 using VentasComputadora.Core.DTO;
+using VentasComputadora.Core.Helpers;
 using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.API.Controllers
@@ -17,11 +18,13 @@ namespace VentasComputadora.API.Controllers
     {
         private readonly IClienteService _clienteService;
         private readonly IMapper _mapper;
+        private readonly ICodigoControl _cod;
 
-        public ClienteController(IClienteService clienteService, IMapper mapper)
+        public ClienteController(IClienteService clienteService, IMapper mapper, ICodigoControl cod)
         {
             _clienteService = clienteService;
             _mapper = mapper;
+            _cod = cod;
         }
 
         [HttpGet]
@@ -43,5 +46,6 @@ namespace VentasComputadora.API.Controllers
             var response = new ApiResponse<ClienteDto>(resultDto);
             return Ok(response);
         }
+      
     }
 }

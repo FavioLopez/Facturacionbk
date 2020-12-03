@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using VentasComputadora.Core.Helpers;
 using VentasComputadora.Core.Interface;
 using VentasComputadora.Core.Services;
 using VentasComputadora.Infrastructure.Data;
@@ -39,6 +40,7 @@ namespace VentasComputadora.API
             services.AddTransient<IProductoService, ProductoService>();
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IVentaService, VentaService>();
+            services.AddTransient<ICodigoControl, CodigoControl>();
             services.AddTransient<IDetalleVentaService, DetalleVentaService>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -55,6 +57,10 @@ namespace VentasComputadora.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(a => a.AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(or => true)
+            .AllowCredentials());
 
             app.UseAuthorization();
 

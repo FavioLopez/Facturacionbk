@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using VentasComputadora.Core.DTO;
 using VentasComputadora.Core.Helpers;
+using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.API.Controllers.Tests
 {

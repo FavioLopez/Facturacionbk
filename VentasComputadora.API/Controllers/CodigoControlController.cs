@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VentasComputadora.Core.DTO;
 using VentasComputadora.Core.Helpers;
+using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.API.Controllers
 {
@@ -13,10 +14,10 @@ namespace VentasComputadora.API.Controllers
     [ApiController]
     public class CodigoControlController : ControllerBase
     {
-        CodigoControl cod = new CodigoControl();
-        [HttpGet]
+        [HttpPost]
         public string GetCodigoControl(CodigoControlDto codigoControlDto)
         {
+            CodigoControl cod = new CodigoControl();
             string codigoRespuesta = cod.GenerarCodigoControl(codigoControlDto.NumAutorizacion,
                 codigoControlDto.NumFactura,codigoControlDto.NitCi,codigoControlDto.FechaTran,
                 codigoControlDto.MontoTran,codigoControlDto.LlaveDosi);
