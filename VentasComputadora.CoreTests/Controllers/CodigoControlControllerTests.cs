@@ -9,6 +9,7 @@ using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.API.Controllers.Tests
 {
+    //protected abstract ICodigoControl CreateInstance();
     [TestClass()]
     public class CodigoControlControllerTests
     {
@@ -17,6 +18,7 @@ namespace VentasComputadora.API.Controllers.Tests
         [TestMethod()]
         public void GetCodigoControlTest()
         {
+
             codigoControlDto.NumAutorizacion = "79040011859";
             codigoControlDto.NumFactura = "152";
             codigoControlDto.NitCi = "1026469026";
