@@ -14,6 +14,7 @@ namespace VentasComputadora.Core.Interface
         IRepository<Venta> VentaRepository { get; }
         IRepository<DetalleVenta> DetalleVentaRepository { get; }
         IRepository<Usuario> UsuarioRepository { get; }
+        IRepository<CodigoControl> CodigoRepository { get; }
 
         void SaveChanges();
         Task SaveChangesAsync();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using VentasComputadora.Core.DTO;
 using VentasComputadora.Core.Entities;
 using VentasComputadora.Core.Interface;
 using VentasComputadora.Infrastructure.Data;
@@ -16,14 +17,14 @@ namespace VentasComputadora.Infrastructure.Repositories
         private readonly IRepository<Venta> _ventaRepository;
         private readonly IRepository<DetalleVenta> _detalleVentaRepository;
         private readonly IRepository<Usuario> _usuarioRepository;
-
+        private readonly IRepository<CodigoControl> _codigoRepository;
         private readonly VentaComputadorasContext _context;
 
         public UnitOfWork(VentaComputadorasContext context)
         {
             this._context = context;    
         }
-
+        public IRepository<CodigoControl> CodigoRepository => _codigoRepository ?? new BaseRepository<CodigoControl>(_context);
         public IRepository<Producto> ProductoRepository => _productoRepository ?? new BaseRepository<Producto>(_context);
 
         public IRepository<Categoria> CategoriaRepository => _categoriaRepository ?? new BaseRepository<Categoria>(_context);

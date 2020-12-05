@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.Core.Helpers
 {
     public class LeerArchivo
     {
+        private readonly IUnitOfWork unit;
         public List<string> leerLineas()
         {
-            var codigoControl = new CodigoControl();
+            var codigoControl = new CodigoControl(unit);
             int cont = 0;
             string linea;
             List<string> lista = new List<string>();

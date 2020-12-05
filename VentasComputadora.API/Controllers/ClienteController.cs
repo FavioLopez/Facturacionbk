@@ -18,13 +18,11 @@ namespace VentasComputadora.API.Controllers
     {
         private readonly IClienteService _clienteService;
         private readonly IMapper _mapper;
-        private readonly ICodigoControl _cod;
 
-        public ClienteController(IClienteService clienteService, IMapper mapper, ICodigoControl cod)
+        public ClienteController(IClienteService clienteService, IMapper mapper)
         {
             _clienteService = clienteService;
             _mapper = mapper;
-            _cod = cod;
         }
 
         [HttpGet]

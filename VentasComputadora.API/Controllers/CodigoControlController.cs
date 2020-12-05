@@ -14,11 +14,17 @@ namespace VentasComputadora.API.Controllers
     [ApiController]
     public class CodigoControlController : ControllerBase
     {
+        private readonly IUnitOfWork unitOfWork;
+        private readonly ICodigoControl cod;
+        //public CodigoControlController(ICodigoControl codigo)
+        //{
+        //    this.cod = codigo;
+        //}
         [HttpPost]
         public string GetCodigoControl(CodigoControlDto codigoControlDto)
         {
-            CodigoControl cod = new CodigoControl();
-            string codigoRespuesta = cod.GenerarCodigoControl(codigoControlDto.NumAutorizacion,
+            CodigoControl codigo = new CodigoControl(unitOfWork);
+            string codigoRespuesta = codigo.GenerarCodigoControl(codigoControlDto.NumAutorizacion,
                 codigoControlDto.NumFactura,codigoControlDto.NitCi,codigoControlDto.FechaTran,
                 codigoControlDto.MontoTran,codigoControlDto.LlaveDosi);
             return codigoRespuesta;

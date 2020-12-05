@@ -7,6 +7,11 @@ namespace VentasComputadora.Core.Helpers
 {
     public class CodigoControl : ICodigoControl
     {
+        private readonly IUnitOfWork unitOfWork;
+        public CodigoControl(IUnitOfWork unit)
+        {
+            this.unitOfWork = unit;
+        }
         public string CifrarMensajeRC4(string mensaje, string llave, bool guion)
         {
             int[] state = new int[256];

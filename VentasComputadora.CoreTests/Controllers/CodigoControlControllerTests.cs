@@ -9,16 +9,18 @@ using VentasComputadora.Core.Interface;
 
 namespace VentasComputadora.API.Controllers.Tests
 {
-    //protected abstract ICodigoControl CreateInstance();
+   
     [TestClass()]
     public class CodigoControlControllerTests
     {
-        CodigoControlDto codigoControlDto = new CodigoControlDto();
-        CodigoControlController codigo = new CodigoControlController();
+        private readonly IUnitOfWork unit;
+        private readonly ICodigoControl cod;
+        CodigoControlDto codigoControlDto = new CodigoControlDto(); 
         [TestMethod()]
         public void GetCodigoControlTest()
         {
-
+            //CodigoControlController codigo = new CodigoControlController(cod);
+            CodigoControlController codigo = new CodigoControlController();
             codigoControlDto.NumAutorizacion = "79040011859";
             codigoControlDto.NumFactura = "152";
             codigoControlDto.NitCi = "1026469026";
